@@ -33,7 +33,7 @@ proc extractFile(repo: string, archives: seq[string], filename, tofolder: string
         let cmd = EXTRACT % [
             "repo", repo,
             "archive", archive,
-            "target", tofolder / filename.splitPath().tail & "___" & archive.replace(" ", "_"),
+            "target",  tofolder / archive.replace(" ", "_") & "___" & filename.splitPath().tail,
             "file", filename
         ]
         echo cmd
